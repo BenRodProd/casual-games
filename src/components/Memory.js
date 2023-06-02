@@ -58,6 +58,7 @@ export default function Memory() {
   const [turnedCards, setTurnedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [wrongAttempts, setWrongAttempts] = useState(0);
+  const [clickable, setClickable] = useState(true);
   const memoryThemes = {
     FantasyLandscapes: "/assets/fl",
   };
@@ -89,27 +90,27 @@ export default function Memory() {
     const shuffledCards = shuffleArray(allCards);
 
     const cardImages = [
-        "/assets/memory/fl1.jpeg",
-        "/assets/memory/fl2.jpeg",
-        "/assets/memory/fl3.jpeg",
-        "/assets/memory/fl4.jpeg",
-        "/assets/memory/fl5.jpeg",
-        "/assets/memory/fl6.jpeg",
-        "/assets/memory/fl7.jpeg",
-        "/assets/memory/fl8.jpeg",
-        "/assets/memory/fl9.jpeg",
-        "/assets/memory/fl10.jpeg",
-        "/assets/memory/fl11.jpeg",
-        "/assets/memory/fl12.jpeg",
-        "/assets/memory/fl13.jpeg",
-        "/assets/memory/fl14.jpeg",
-        "/assets/memory/fl5.jpeg",
-        "/assets/memory/fl16.jpeg",
-        "/assets/memory/fl17.jpeg",
-        "/assets/memory/fl18.jpeg",
-        "/assets/memory/fl19.jpeg",
-        "/assets/memory/fl20.jpeg",
-        "/assets/memory/fl21.jpeg",
+      "/assets/memory/fl1.jpeg",
+      "/assets/memory/fl2.jpeg",
+      "/assets/memory/fl3.jpeg",
+      "/assets/memory/fl4.jpeg",
+      "/assets/memory/fl5.jpeg",
+      "/assets/memory/fl6.jpeg",
+      "/assets/memory/fl7.jpeg",
+      "/assets/memory/fl8.jpeg",
+      "/assets/memory/fl9.jpeg",
+      "/assets/memory/fl10.jpeg",
+      "/assets/memory/fl11.jpeg",
+      "/assets/memory/fl12.jpeg",
+      "/assets/memory/fl13.jpeg",
+      "/assets/memory/fl14.jpeg",
+      "/assets/memory/fl5.jpeg",
+      "/assets/memory/fl16.jpeg",
+      "/assets/memory/fl17.jpeg",
+      "/assets/memory/fl18.jpeg",
+      "/assets/memory/fl19.jpeg",
+      "/assets/memory/fl20.jpeg",
+      "/assets/memory/fl21.jpeg",
     ];
 
     setCards(
@@ -124,21 +125,28 @@ export default function Memory() {
     setMatchedCards([]);
     setWrongAttempts(0);
   };
+
   const handleCardClick = (card) => {
-    if (card.turned || matchedCards.some((c) => c.id === card.id)) {
+    if (!clickable || card.turned || matchedCards.some((c) => c.id === card.id)) {
       return;
     }
-  
+
+    
+
     const turnedCount = turnedCards.length;
     if (turnedCount === 0) {
       // First card to be turned
       setTurnedCards([card]);
     } else if (turnedCount === 1) {
       // Second card to be turned
+      setClickable(false);
       setTurnedCards((prevTurnedCards) => [...prevTurnedCards, card]);
-      setTimeout(() => checkTurnedCards([...turnedCards, card]), 1000);
+      setTimeout(() => {
+        checkTurnedCards([...turnedCards, card]);
+        setClickable(true); // Enable clicking after the timeout
+      }, 1000);
     }
-  
+
     setCards((prevCards) =>
       prevCards.map((c) => {
         if (c.id === card.id) {
@@ -148,8 +156,6 @@ export default function Memory() {
       })
     );
   };
-  
-  
 
   const checkTurnedCards = (turnedCards) => {
     const [card1, card2] = turnedCards;
@@ -169,8 +175,6 @@ export default function Memory() {
     }
     setTurnedCards([]);
   };
-  
-  
 
   const shuffleArray = (array) => {
     const shuffledArray = [...array];
@@ -197,25 +201,21 @@ export default function Memory() {
       <Header>Memory</Header>
       <CardContainer>
         {cards.map((card) => (
-         <Card
-         key={card.id}
-         turned={card.turned}
-         matched={matchedCards.some((c) => c.id === card.id)}
-         onClick={() => handleCardClick(card)}
-       >
-         {card.turned || matchedCards.some((c) => c.id === card.id) ? (
-           <img src={card.image} alt={`Card ${card.id}`} />
-         ) : (
-           <span>?</span>
-         )}
-       </Card>
+          <Card
+            key={card.id}
+            turned={card.turned}
+            matched={matchedCards.some((c) => c.id === card.id)}
+            onClick={() => handleCardClick(card)}
+          >
+            {card.turned || matchedCards.some((c) => c.id === card.id) ? (
+              <img src={card.image} alt={`Card ${card.id}`} />
+            ) : (
+              <span>?</span>
+            )}
+          </Card>
         ))}
       </CardContainer>
       <p>Wrong Attempts: {wrongAttempts}</p>
     </Main>
   );
 }
-
-
-
-
