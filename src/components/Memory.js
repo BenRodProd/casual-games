@@ -202,7 +202,7 @@ export default function Memory({setGamePoints}) {
             onClick={() => handleCardClick(card)}
           >
             {card.turned || matchedCards.some((c) => c.id === card.id) ? (
-              <Image src={card.image} width="100" height="100" alt={`Card ${card.id}`} />
+              <Image priority src={card.image} width="100" height="100" alt={`Card ${card.id}`} />
             ) : (
               <span>?</span>
             )}
