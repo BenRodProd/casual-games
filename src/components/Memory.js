@@ -52,7 +52,7 @@ const Card = styled.div`
   }
 `;
 
-export default function Memory() {
+export default function Memory({setGamePoints}) {
   const [difficulty, setDifficulty] = useState("easy");
   const [cards, setCards] = useState([]);
   const [turnedCards, setTurnedCards] = useState([]);
@@ -90,28 +90,20 @@ export default function Memory() {
     const shuffledCards = shuffleArray(allCards);
 
     const cardImages = [
-      "/assets/memory/fl1.jpeg",
-      "/assets/memory/fl2.jpeg",
-      "/assets/memory/fl3.jpeg",
-      "/assets/memory/fl4.jpeg",
-      "/assets/memory/fl5.jpeg",
-      "/assets/memory/fl6.jpeg",
-      "/assets/memory/fl7.jpeg",
-      "/assets/memory/fl8.jpeg",
-      "/assets/memory/fl9.jpeg",
-      "/assets/memory/fl10.jpeg",
-      "/assets/memory/fl11.jpeg",
-      "/assets/memory/fl12.jpeg",
-      "/assets/memory/fl13.jpeg",
-      "/assets/memory/fl14.jpeg",
-      "/assets/memory/fl5.jpeg",
-      "/assets/memory/fl16.jpeg",
-      "/assets/memory/fl17.jpeg",
-      "/assets/memory/fl18.jpeg",
-      "/assets/memory/fl19.jpeg",
-      "/assets/memory/fl20.jpeg",
-      "/assets/memory/fl21.jpeg",
-    ];
+      "/assets/memory/fl1.webp",
+      "/assets/memory/fl2.webp",
+      "/assets/memory/fl3.webp",
+      "/assets/memory/fl4.webp",
+      "/assets/memory/fl5.webp",
+      "/assets/memory/fl6.webp",
+      "/assets/memory/fl7.webp",
+      "/assets/memory/fl8.webp",
+      "/assets/memory/fl9.webp",
+      "/assets/memory/fl10.webp",
+      "/assets/memory/fl11.webp",
+      "/assets/memory/fl12.webp",
+      "/assets/memory/fl13.webp",
+        ];
 
     setCards(
       shuffledCards.map((value, index) => ({
@@ -144,7 +136,7 @@ export default function Memory() {
       setTimeout(() => {
         checkTurnedCards([...turnedCards, card]);
         setClickable(true); // Enable clicking after the timeout
-      }, 1000);
+      }, 2000);
     }
 
     setCards((prevCards) =>
@@ -161,9 +153,11 @@ export default function Memory() {
     const [card1, card2] = turnedCards;
     if (card1.value === card2.value) {
       // Matched
+      setGamePoints((prevGamePoints) => prevGamePoints + 5);
       setMatchedCards((prevMatchedCards) => [...prevMatchedCards, card1, card2]);
     } else {
       // Not matched
+      setGamePoints((prevGamePoints) => prevGamePoints - 1);
       setCards((prevCards) =>
         prevCards.map((c) => {
           if (c.id === card1.id || c.id === card2.id) {
@@ -208,14 +202,14 @@ export default function Memory() {
             onClick={() => handleCardClick(card)}
           >
             {card.turned || matchedCards.some((c) => c.id === card.id) ? (
-              <img src={card.image} alt={`Card ${card.id}`} />
+              <Image src={card.image} width="100" height="100" alt={`Card ${card.id}`} />
             ) : (
               <span>?</span>
             )}
           </Card>
         ))}
       </CardContainer>
-      <p>Wrong Attempts: {wrongAttempts}</p>
+      
     </Main>
   );
 }

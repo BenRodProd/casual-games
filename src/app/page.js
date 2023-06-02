@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import Memory from "@/components/Memory";
-
+import useLocalStorage from "use-local-storage";
 import TicTacToe from "@/components/Tictactoe";
 import styled from "styled-components";
 
@@ -25,6 +25,7 @@ margin-top: 3rem;
 `
 
 export default function Home() {
+  const [gamePoints, setGamePoints] = useLocalStorage("gamePoints", 0);
   const [game, setGame] = useState("TicTacToe")
   return (
  <>
@@ -33,9 +34,9 @@ export default function Home() {
   <button onClick={()=> setGame("Memory")} className={game === "Memory" ? "active" : ""} type="button">Memory</button>
  </Navigation>
  <Main>
-  {game==="TicTacToe" && <TicTacToe />}
-  {game==="Memory" && <Memory />}
-
+  {game==="TicTacToe" && <TicTacToe setGamePoints={setGamePoints} />}
+  {game==="Memory" && <Memory setGamePoints={setGamePoints} />}
+    <p>Points: {gamePoints}</p>
   </Main>
  </>
   )

@@ -1,12 +1,19 @@
+@font-face {
+  font-family: "choco" ;
+  src: url("/Chocopy.otf") format("opentype");
+}
 * {
   box-sizing: border-box;
 }
 body {
+  font-family: choco;
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
   background-color: black;
+  text-align: center;
+  color:white;
 }
 .tic {
   position:relative;

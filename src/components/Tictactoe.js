@@ -25,14 +25,14 @@ const Menu = styled.div`
 
 
 const Header = styled.h2`
-margin-top:6rem;
+margin-top:3rem;
   color: white;
   text-align: center;
 `
 
 
 
-export default function TicTacToe() {
+export default function TicTacToe({setGamePoints}) {
   const [difficulty, setDifficulty] = useState("easy")
   const [cards, setCards] = useState(Array(9).fill(null))
   const [playerTurn, setPlayerTurn] = useState(true)
@@ -47,14 +47,20 @@ export default function TicTacToe() {
     }
   }, [playerTurn])
 useEffect(() => {
-    if (winner === "player") {
-        setWinnerPopup("player")
-    } else if (winner === "computer") {
-        setWinnerPopup("computer")
-    } else if (winner === "tie") {
-        setWinnerPopup("tie")
+    if (winner === "Player") {
+        setGamePoints((prevGamePoints) => prevGamePoints + 10)
+      
+        
+    } else if (winner === "Computer") {
+        setGamePoints((prevGamePoints) => prevGamePoints - 10)
+      
+        
+    } else if (winner === "Tie") {
+        setGamePoints((prevGamePoints) => prevGamePoints + 1)
+        
+        
     }
-}, [winner])
+}, [winner, setGamePoints])
   const handleCardClick = index => {
     if (!cards[index] && playerTurn && !gameOver) {
       const newCards = [...cards]
