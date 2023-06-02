@@ -103,6 +103,7 @@ export default function Memory({setGamePoints}) {
       "/assets/memory/fl11.webp",
       "/assets/memory/fl12.webp",
       "/assets/memory/fl13.webp",
+      "/assets/memory/fl14.webp",
         ];
 
     setCards(
