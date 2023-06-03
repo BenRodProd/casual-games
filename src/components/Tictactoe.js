@@ -9,7 +9,7 @@ const Main = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: transparent;
 `
 
 const Menu = styled.div`
@@ -37,7 +37,7 @@ export default function TicTacToe({setGamePoints}) {
   const [cards, setCards] = useState(Array(9).fill(null))
   const [playerTurn, setPlayerTurn] = useState(true)
   const [gameOver, setGameOver] = useState(false)
-  const [winner, setWinner] = useState(false)
+  const [winner, setWinner] = useState("")
 
 
   useEffect(() => {

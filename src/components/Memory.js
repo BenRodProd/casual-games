@@ -9,7 +9,7 @@ const Main = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: transparent;
 `;
 
 const Menu = styled.div`
@@ -77,7 +77,7 @@ export default function Memory({setGamePoints}) {
         cardCount = 12;
         break;
       case "hard":
-        cardCount = 21;
+        cardCount = 25;
         break;
       default:
         cardCount = 9;
@@ -183,13 +183,13 @@ export default function Memory({setGamePoints}) {
   return (
     <Main>
       <Menu>
-        <Button active={difficulty === "easy"} type="button" onClick={() => setDifficulty("easy")}>
+        <Button className={difficulty === "easy" ? "active" : ""} active={difficulty === "easy"} type="button" onClick={() => setDifficulty("easy")}>
           Easy
         </Button>
-        <Button active={difficulty === "medium"} type="button" onClick={() => setDifficulty("medium")}>
+        <Button className={difficulty === "medium" ? "active" : ""} active={difficulty === "medium"} type="button" onClick={() => setDifficulty("medium")}>
           Medium
         </Button>
-        <Button active={difficulty === "hard"} type="button" onClick={() => setDifficulty("hard")}>
+        <Button className={difficulty === "hard" ? "active" : ""} active={difficulty === "hard"} type="button" onClick={() => setDifficulty("hard")}>
           Hard
         </Button>
       </Menu>
