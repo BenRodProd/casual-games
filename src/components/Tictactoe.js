@@ -22,7 +22,18 @@ const Menu = styled.div`
   left: 0;
 `
 
-
+const Popup = styled.div `
+display: flex;
+flex-direction: column;
+position: absolute;
+height: 60%;
+width: 60%;
+background-color: rgba(0, 0, 0, 0.9);
+border: 3px solid white;
+align-items: center;
+justify-content: center;
+padding: 2rem;
+`
 
 const Header = styled.h2`
 margin-top:3rem;
@@ -265,20 +276,26 @@ useEffect(() => {
       </div>
       {winner==="Player" && (
         <>
+        <Popup>
           <Header>You have won!!!</Header>
           <button type="button" onClick={()=> resetGame()} >Play Again</button>
+          </Popup>
         </>
       )}
       {winner==="Computer" && (
         <>
+        <Popup>
           <Header>You have lost!!!</Header>
           <button type="button" onClick={()=> resetGame()} >Play Again</button>
+          </Popup>
         </>
       )}
       {winner==="Tie" && (
         <>
+        <Popup>
           <Header>Tie!!!</Header>
           <button type="button" onClick={()=> resetGame()} >Play Again</button>
+          </Popup>
         </>
       )}
     </Main>

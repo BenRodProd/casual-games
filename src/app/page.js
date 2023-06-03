@@ -9,12 +9,13 @@ import styled from "styled-components";
 const Navigation = styled.div`
 display: flex;
 justify-content: space-evenly;
-background-color: rgba(39, 236, 245, 0.3);
-position: absolute;
+background-color: rgba(39, 236, 245, 0.5);
+position: fixed;
 width: 100%;
 top:0;
 margin-bottom: 3rem;
 padding: 5px;
+z-index:5;
 `
 
 const ImageWrapper = styled.div`
@@ -46,16 +47,18 @@ justify-content: center;
 width: 100%;
 height: 100%;
 margin-top: 5rem;
+overflow-y: scroll;
 `
 
 const Points = styled.p`
-position: absolute;
+position: fixed;
 top: 1.5rem;
 width: 100%;
 height: 2rem;
 margin-bottom:0;
-background-color: rgba(39, 236, 245, 0.3);
+background-color: rgba(39, 236, 245, 0.5);
 padding: 5px;
+z-index:5;
 `
 
 export default function Home() {
@@ -79,11 +82,12 @@ export default function Home() {
  <>
  <ImageWrapper>
   <BackgroundImage src = "/assets/back.jpg" fill={true} alt ="back" />
+  <Points>Points: {gamePoints}</Points>
  <Navigation>
   <button onClick={()=> setGame("TicTacToe")} className={game === "TicTacToe" ? "navbutton active" : "navbutton"} type="button">TicTacToe</button>
   <button onClick={()=> setGame("Memory")} className={game === "Memory" ? "navbutton active" : "navbutton"} type="button">Memory</button>
  </Navigation>
- <Points>Points: {gamePoints}</Points>
+
  <Main>
   {game==="TicTacToe" && <TicTacToe setGamePoints={setGamePoints} />}
   {game==="Memory" && <Memory setGamePoints={setGamePoints} />}

@@ -17,7 +17,8 @@ const Menu = styled.div`
   justify-content: center;
   gap: 15px;
   width: 100%;
-  position: relative;
+  position: absolute;
+  
   top: 0;
   left: 0;
 `;
@@ -27,14 +28,33 @@ const Button = styled.button`
 `;
 
 const Header = styled.h2`
+position: absolute;
   color: white;
   text-align: center;
+  top: 3rem;
 `;
+const Popup = styled.div `
+display: flex;
+flex-direction: column;
+position: absolute;
+height: 60%;
+width: 60%;
+background-color: rgba(0, 0, 0, 0.9);
+border: 3px solid white;
+align-items: center;
+justify-content: center;
+padding: 2rem;
+`
+
 
 const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+  
+  overflow-y: auto;
+  margin-bottom:9rem;
+  margin-top: 8rem;
 `;
 
 const Card = styled.div`
@@ -59,13 +79,26 @@ export default function Memory({setGamePoints}) {
   const [matchedCards, setMatchedCards] = useState([]);
   const [wrongAttempts, setWrongAttempts] = useState(0);
   const [clickable, setClickable] = useState(true);
-  const memoryThemes = {
-    FantasyLandscapes: "/assets/fl",
-  };
+  const [gameOver, setGameOver] = useState(false)
+
 
   useEffect(() => {
     generateCards(difficulty);
   }, [difficulty]);
+
+  
+    useEffect(() => {
+      // ...existing code...
+      if (matchedCards.length > 0) {
+ 
+      
+      // Check if the game is over
+      if (matchedCards.length === cards.length) {
+        setGameOver(true)
+        setGamePoints((prevGamePoints) => prevGamePoints + 10);
+      }
+    }
+    }, [matchedCards, turnedCards]);
 
   const generateCards = (difficulty) => {
     let cardCount = 0;
@@ -149,7 +182,10 @@ export default function Memory({setGamePoints}) {
       })
     );
   };
-
+  const resetGame = () => {
+    generateCards(difficulty);
+    setGameOver(false)
+  };
   const checkTurnedCards = (turnedCards) => {
     const [card1, card2] = turnedCards;
     if (card1.value === card2.value) {
@@ -210,7 +246,14 @@ export default function Memory({setGamePoints}) {
           </Card>
         ))}
       </CardContainer>
-      
+      {gameOver && (
+        <>
+        <Popup>
+          <Header>You did it!</Header>
+          <button type="button" onClick={()=> resetGame()} >Play Again</button>
+          </Popup>
+        </>
+      )}
     </Main>
   );
 }
