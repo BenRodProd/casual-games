@@ -60,27 +60,34 @@ export default function StoneRockScissors({setGamePoints}) {
   const [difficulty, setDifficulty] = useState("easy");
   const gameElements = ["Rock", "Paper", "Scissors"];
   const [computerChoice, setComputerChoice] = useState("");
+  const [playerChoice, setPlayerChoice] = useState("");
   const [round, setRound] = useState(0);
   const [playerWins, setPlayerWins] = useState(0);
   const [computerWins, setComputerWins] = useState(0);
   const [popup, setPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
-const [resultMessage, setResultMessage] = useState("");
+const [gameMessage, setGameMessage] = useState("");
 
 
 
 useEffect(() => {
-    if (round > 3) {
+    if (round >= 3) {
         if (playerWins > computerWins) {
-        setPopupMessage("YOU HAVE WON!!!!")
+          setTimeout(() => {
+            setPopupMessage("YOU HAVE WON!!!!")
             setPopup(true);
             setGamePoints((prev) => prev + 10);
+          },500)
+        
 
         
     }   else if (computerWins > playerWins) {
+      setTimeout(() => {
+        
         setPopupMessage("YOU LOST!!!!")
         setPopup(true);
         setGamePoints((prev) => prev - 10);
+      },500)
     }
         
     }
@@ -88,22 +95,33 @@ useEffect(() => {
 
 
 
-  const determineWinner = (playerChoice, computerChoice) => {
-    console.log(playerChoice, computerChoice)
+  function determineWinner (playersChoice, computersChoice) {
+    console.log(playersChoice, computersChoice)
+    if ((playersChoice === "Rock" && computersChoice === "Scissors") || (playersChoice === "Scissors" && computersChoice === "Rock")) {
+      setGameMessage("Rock crashes Scissors");
+    }
+    if ((playersChoice === "Rock" && computersChoice === "Paper") || (playersChoice === "Paper" && computersChoice === "Rock")) {
+      setGameMessage("Paper holds Rock");
+    }
+    if ((playersChoice === "Scissors" && computersChoice === "Paper") || (playersChoice === "Paper" && computersChoice === "Scissors")) {
+      setGameMessage("Scissors cut Paper");
+    }
+    
     if (
-      (playerChoice === "Rock" && computerChoice === "Scissors") ||
-      (playerChoice === "Scissors" && computerChoice === "Paper") ||
-      (playerChoice === "Paper" && computerChoice === "Rock")
+      (playersChoice === "Rock" && computersChoice === "Scissors") ||
+      (playersChoice === "Scissors" && computersChoice === "Paper") ||
+      (playersChoice === "Paper" && computersChoice === "Rock")
     ) {
       setPlayerWins(playerWins + 1);
-     
+      setRound(round + 1);
       return "Player wins!";
-    } else if (playerChoice === computerChoice) {
-      
+    } else if (playersChoice === computersChoice) {
+      setGameMessage("Tie!")
       return "It's a tie!";
+      
     } else {
       setComputerWins(computerWins + 1);
-     
+      setRound(round + 1);
       return "Computer wins!";
     }
   };
@@ -115,13 +133,15 @@ useEffect(() => {
     setPlayerWins(0)
     setPopup(false)
     setComputerChoice("")
+    setGameMessage("")
   }
 
   const handleChoice = (choice) => {
     const NewChoice =gameElements[Math.floor(Math.random() * gameElements.length)]
     setComputerChoice(NewChoice);
-    const result = determineWinner(choice, computerChoice);
-    setRound(round + 1);
+    setPlayerChoice(choice);
+    determineWinner(choice, NewChoice);
+   
     console.log(choice, computerChoice)
     // You can update the game state or perform other actions based on the result
   };
@@ -156,8 +176,12 @@ useEffect(() => {
         </button>
       </Menu>
       <Header>Points Computer: {computerWins}</Header>
-      <Header>{computerChoice}</Header>
-     
+      
+      {computerChoice !== "" &&
+      <ElementBox>
+      <Image src = {`/assets/${computerChoice}.png`} alt={computerChoice} height="100" width="100" key={computerChoice} />
+      </ElementBox>}
+      {gameMessage !== "" && <Header >{gameMessage}</Header>}
         <Elements>
         {gameElements.map((element) => (
             <ElementBox key = {element}>
