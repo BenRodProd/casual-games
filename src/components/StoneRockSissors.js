@@ -40,6 +40,7 @@ border: 3px solid white;
 align-items: center;
 justify-content: center;
 padding: 2rem;
+z-index:20;
 `
 const ElementBox = styled.div`
 padding:0;
@@ -92,7 +93,7 @@ const [buttonDisabled, setButtonDisabled] = useState(false);
 const [computerHasWon, setComputerHasWon] = useState(false);
 
 useEffect(() => {
-    if (round >= 3) {
+    if (round >= 3 && difficulty !== "hard") {
       setButtonDisabled(true);
       
         if (playerWins > computerWins) {
@@ -117,7 +118,28 @@ useEffect(() => {
       },1500)
     }
         
-    }
+    } else if (round >= 5 && difficulty === "hard") {
+      setButtonDisabled(true);
+      
+        if (playerWins > computerWins) {
+         
+          setTimeout(() => {
+            setComputerHasWon(false)
+            setWinnerIndex(-1)
+            setPopupMessage("YOU HAVE WON!!!!")
+            setPopup(true);
+            setGamePoints((prev) => prev + 10);
+          },1500)
+        } else if (computerWins > playerWins) {
+          setTimeout(() => {
+            setWinnerIndex(-1)
+            setComputerHasWon(false)
+            setPopupMessage("YOU LOST!!!!")
+            setPopup(true);
+            setGamePoints((prev) => prev - 10);
+          },1500)
+        }
+      }
 }, [round])
 
 
@@ -245,7 +267,7 @@ if ((playersChoice === "Scissors" && computersChoice === "Well") || (playersChoi
   },1500)
 }
 if ((playersChoice === "Water" && computersChoice === "Well") || (playersChoice === "Well" && computersChoice === "Water")) {
-  setGameMessage("Well swallows Water");
+  setGameMessage("Water overflows Well");
   setButtonDisabled(true);
   setTimeout(() => {
     setButtonDisabled(false);
@@ -293,7 +315,7 @@ if ((playersChoice === "Rock" && computersChoice === "Fire") || (playersChoice =
       (playersChoice === "Water" && computersChoice === "Scissors") ||
       (playersChoice === "Water" && computersChoice === "Paper") ||
       (playersChoice === "Well" && computersChoice === "Rock") ||
-      (playersChoice === "Well" && computersChoice === "Water") ||
+      (playersChoice === "Water" && computersChoice === "Well") ||
       (playersChoice === "Well" && computersChoice === "Scissors") ||
       (playersChoice === "Paper" && computersChoice === "Well") ||
       (playersChoice === "Fire" && computersChoice === "Paper") ||
