@@ -5,6 +5,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: choco;
   text-shadow: 2px 2px #ff0000;;
@@ -68,12 +69,21 @@ button:active {
 }
 .roshambo {
   background:black;
-  
+  z-index:5;
 }
 a {
+  position:absolute;
   text-decoration: none;
-  z-index:20;
+  z-index:25;
   color:white;
+  bottom: 0;
+  height:1.5rem;
+  
+  left:50%;
+  transform: translateX(-50%);
+  background-color: rgba(104, 104, 104, 0.5);
+  width: 100%;
+  
 }
 .roshamboElement {
   background: transparent;

@@ -24,6 +24,11 @@ const Main = styled.div`
   background-color: transparent;
 `
 
+const PlayerPointsWrapper = styled.div`
+position:relative;
+bottom:3rem;
+`
+
 const Popup = styled.div `
 display: flex;
 flex-direction: column;
@@ -35,6 +40,7 @@ border: 3px solid white;
 align-items: center;
 justify-content: center;
 padding: 2rem;
+z-index:20;
 `
 const ElementBox = styled.div`
 padding:0;
@@ -54,11 +60,18 @@ justify-content: center;
 align-items: center;
 flex-direction: row;
 gap: 15px;
+flex-wrap: wrap;
+margin: 20px;
 `
 const Header = styled.h2`
 margin-top:3rem;
   color: white;
   text-align: center;
+`
+const OtherHeader = styled.h2`
+margin-top:0;
+color:white;
+text-align: center;
 `
 const GameMessageWrapper = styled.div`
 
@@ -66,7 +79,7 @@ height: 8rem;
 `
 export default function StoneRockScissors({setGamePoints}) {
   const [difficulty, setDifficulty] = useState("easy");
-  const gameElements = ["Rock", "Paper", "Scissors"];
+  const gameElements = ["Rock", "Paper", "Scissors", "Fire", "Water", "Well"];
   const [computerChoice, setComputerChoice] = useState("");
   const [playerChoice, setPlayerChoice] = useState("");
   const [round, setRound] = useState(0);
@@ -80,7 +93,7 @@ const [buttonDisabled, setButtonDisabled] = useState(false);
 const [computerHasWon, setComputerHasWon] = useState(false);
 
 useEffect(() => {
-    if (round >= 3) {
+    if (round >= 3 && difficulty !== "hard") {
       setButtonDisabled(true);
       
         if (playerWins > computerWins) {
@@ -91,7 +104,7 @@ useEffect(() => {
             setPopupMessage("YOU HAVE WON!!!!")
             setPopup(true);
             setGamePoints((prev) => prev + 10);
-          },500)
+          },1500)
         
 
         
@@ -102,10 +115,31 @@ useEffect(() => {
         setPopupMessage("YOU LOST!!!!")
         setPopup(true);
         setGamePoints((prev) => prev - 10);
-      },500)
+      },1500)
     }
         
-    }
+    } else if (round >= 5 && difficulty === "hard") {
+      setButtonDisabled(true);
+      
+        if (playerWins > computerWins) {
+         
+          setTimeout(() => {
+            setComputerHasWon(false)
+            setWinnerIndex(-1)
+            setPopupMessage("YOU HAVE WON!!!!")
+            setPopup(true);
+            setGamePoints((prev) => prev + 10);
+          },1500)
+        } else if (computerWins > playerWins) {
+          setTimeout(() => {
+            setWinnerIndex(-1)
+            setComputerHasWon(false)
+            setPopupMessage("YOU LOST!!!!")
+            setPopup(true);
+            setGamePoints((prev) => prev - 10);
+          },1500)
+        }
+      }
 }, [round])
 
 
@@ -123,7 +157,7 @@ useEffect(() => {
       },1500)
     }
     if ((playersChoice === "Rock" && computersChoice === "Paper") || (playersChoice === "Paper" && computersChoice === "Rock")) {
-      setGameMessage("Paper holds Rock");
+      setGameMessage("Paper covers Rock");
       setButtonDisabled(true);
       setTimeout(() => {
         setButtonDisabled(false);
@@ -142,11 +176,153 @@ useEffect(() => {
         setWinnerIndex(-1)
       },1500)
     }
-    
+    if ((playersChoice === "Rock" && computersChoice === "Well") || (playersChoice === "Well" && computersChoice === "Rock")) {
+      setGameMessage("Rock falls in Well");
+      setButtonDisabled(true);
+      setTimeout(() => {
+        setButtonDisabled(false);
+        setGameMessage("")
+        setComputerChoice("")
+        setWinnerIndex(-1)
+      },1500)
+    }
+      if ((playersChoice === "Rock" && computersChoice === "Water") || (playersChoice === "Water" && computersChoice === "Rock")) {
+        setGameMessage("Rock stands against Water");
+        setButtonDisabled(true);
+        setTimeout(() => {
+          setButtonDisabled(false);
+          setGameMessage("")
+          setComputerChoice("")
+          setWinnerIndex(-1)
+        },1500)
+      }
+        if ((playersChoice === "Fire" && computersChoice === "Paper") || (playersChoice === "Paper" && computersChoice === "Fire")) {
+          setGameMessage("Fire burns Paper");
+          setButtonDisabled(true);
+          setTimeout(() => {
+            setButtonDisabled(false);
+            setGameMessage("")
+            setComputerChoice("")
+            setWinnerIndex(-1)
+          },1500)
+    }
+    if ((playersChoice === "Water" && computersChoice === "Paper") || (playersChoice === "Paper" && computersChoice === "Water")) {
+      setGameMessage("Water dissolves Paper");
+      setButtonDisabled(true);
+      setTimeout(() => {
+        setButtonDisabled(false);
+        setGameMessage("")
+        setComputerChoice("")
+        setWinnerIndex(-1)
+      },1500)
+}
+if ((playersChoice === "Paper" && computersChoice === "Well") || (playersChoice === "Well" && computersChoice === "Paper")) {
+  setGameMessage("Paper covers Well");
+  setButtonDisabled(true);
+  setTimeout(() => {
+    setButtonDisabled(false);
+    setGameMessage("")
+    setComputerChoice("")
+    setWinnerIndex(-1)
+  },1500)
+}
+if ((playersChoice === "Fire" && computersChoice === "Well") || (playersChoice === "Well" && computersChoice === "Fire")) {
+  setGameMessage("Well extinguishes Fire");
+  setButtonDisabled(true);
+  setTimeout(() => {
+    setButtonDisabled(false);
+    setGameMessage("")
+    setComputerChoice("")
+    setWinnerIndex(-1)
+  },1500)
+}
+if ((playersChoice === "Fire" && computersChoice === "Water") || (playersChoice === "Water" && computersChoice === "Fire")) {
+  setGameMessage("Water extinguishes Fire");
+  setButtonDisabled(true);
+  setTimeout(() => {
+    setButtonDisabled(false);
+    setGameMessage("")
+    setComputerChoice("")
+    setWinnerIndex(-1)
+  },1500)
+}
+if ((playersChoice === "Fire" && computersChoice === "Scissors") || (playersChoice === "Scissors" && computersChoice === "Fire")) {
+  setGameMessage("Fire melts Scissors");
+  setButtonDisabled(true);
+  setTimeout(() => {
+    setButtonDisabled(false);
+    setGameMessage("")
+    setComputerChoice("")
+    setWinnerIndex(-1)
+  },1500)
+}
+if ((playersChoice === "Scissors" && computersChoice === "Well") || (playersChoice === "Well" && computersChoice === "Scissors")) {
+  setGameMessage("Scissors fall into Well");
+  setButtonDisabled(true);
+  setTimeout(() => {
+    setButtonDisabled(false);
+    setGameMessage("")
+    setComputerChoice("")
+    setWinnerIndex(-1)
+  },1500)
+}
+if ((playersChoice === "Water" && computersChoice === "Well") || (playersChoice === "Well" && computersChoice === "Water")) {
+  setGameMessage("Water overflows Well");
+  setButtonDisabled(true);
+  setTimeout(() => {
+    setButtonDisabled(false);
+    setGameMessage("")
+    setComputerChoice("")
+    setWinnerIndex(-1)
+  },1500)
+}
+if ((playersChoice === "Water" && computersChoice === "Scissors") || (playersChoice === "Scissors" && computersChoice === "Water")) {
+  setGameMessage("Water rusts Scissors");
+  setButtonDisabled(true);
+  setTimeout(() => {
+    setButtonDisabled(false);
+    setGameMessage("")
+    setComputerChoice("")
+    setWinnerIndex(-1)
+  },1500)
+}
+if ((playersChoice === "Rock" && computersChoice === "Fire") || (playersChoice === "Fire" && computersChoice === "Rock")) {
+  setGameMessage("Rock survives Fire");
+  setButtonDisabled(true);
+  setTimeout(() => {
+    setButtonDisabled(false);
+    setGameMessage("")
+    setComputerChoice("")
+    setWinnerIndex(-1)
+  },1500)
+}
+    if (computersChoice === "Bomb") {
+      setGameMessage("Bomb destroys everything");
+      setButtonDisabled(true);
+      setTimeout(() => {
+        setButtonDisabled(false);
+        setGameMessage("")
+        setComputerChoice("")
+        setWinnerIndex(-1)
+      },1500)
+    }
     if (
       (playersChoice === "Rock" && computersChoice === "Scissors") ||
+      (playersChoice === "Rock" && computersChoice === "Water") ||
+      (playersChoice === "Rock" && computersChoice === "Fire") ||
       (playersChoice === "Scissors" && computersChoice === "Paper") ||
-      (playersChoice === "Paper" && computersChoice === "Rock")
+      (playersChoice === "Paper" && computersChoice === "Rock") ||
+      (playersChoice === "Water" && computersChoice === "Scissors") ||
+      (playersChoice === "Water" && computersChoice === "Paper") ||
+      (playersChoice === "Well" && computersChoice === "Rock") ||
+      (playersChoice === "Water" && computersChoice === "Well") ||
+      (playersChoice === "Well" && computersChoice === "Scissors") ||
+      (playersChoice === "Paper" && computersChoice === "Well") ||
+      (playersChoice === "Fire" && computersChoice === "Paper") ||
+      (playersChoice === "Fire" && computersChoice === "Scissors") ||
+      (playersChoice === "Water" && computersChoice === "Fire") ||
+      (playersChoice === "Well" && computersChoice === "Fire") ||
+      (playersChoice === "Water" && computersChoice === "Fire") 
     ) {
       setPlayerWins(playerWins + 1);
       setRound(round + 1);
@@ -189,14 +365,22 @@ useEffect(() => {
 
   const handleChoice = (choice) => {
     if (!buttonDisabled) {
-    const NewChoice =gameElements[Math.floor(Math.random() * gameElements.length)]
-    setComputerChoice(NewChoice);
-    setPlayerChoice(choice);
-    determineWinner(choice, NewChoice);
-   
- 
+      let computerOptions = [];
+      if (difficulty === "easy") {
+        computerOptions = ["Rock", "Paper", "Scissors"];
+      } else if (difficulty === "medium") {
+        computerOptions = [...gameElements];
+      } else if (difficulty === "hard") {
+        computerOptions = [...gameElements, "Bomb"];
+      }
+  
+      const randomIndex = Math.floor(Math.random() * computerOptions.length);
+      const computerChoice = computerOptions[randomIndex];
+  
+      setComputerChoice(computerChoice);
+      setPlayerChoice(choice);
+      determineWinner(choice, computerChoice);
     }
-
   };
 
   return (
@@ -228,7 +412,7 @@ useEffect(() => {
           Hard
         </button>
       </Menu>
-      <Header>Points Computer: {computerWins}</Header>
+      <OtherHeader>Points Computer: {computerWins}</OtherHeader>
         <ComputerWrapper>
       {computerChoice !== "" &&
       <ElementBox className={computerHasWon ? "winner" : "roshambo"}>
@@ -239,22 +423,50 @@ useEffect(() => {
       <Header >{gameMessage}</Header>
       </GameMessageWrapper>
       <Elements>
-  {gameElements.map((element, index) => (
-    <ElementBox key={element} className={index === winnerIndex ? "winner" : "roshambo"} >
-      <Image
-      className="roshamboElement"
-        src={`/assets/${element}.png`}
-        alt={element}
-        height="80"
-        width="80"
+  {difficulty==="easy" &&
+  gameElements
+    .filter((element) =>
+      difficulty === "easy" ? ["Rock", "Paper", "Scissors"].includes(element) : true
+    )
+    .map((element, index) => (
+      <ElementBox
         key={element}
-        onClick={() => handleChoice(element)}
-      />
-    </ElementBox>
-  ))}
+        className={index === winnerIndex ? "winner" : "roshambo"}
+      >
+        <Image
+          className="roshamboElement"
+          src={`/assets/${element}.png`}
+          alt={element}
+          height="80"
+          width="80"
+          key={element}
+          onClick={() => handleChoice(element)}
+        />
+      </ElementBox>
+    ))}
+  {difficulty !== "easy" &&
+    gameElements
+       .map((element, index) => (
+        <ElementBox
+          key={element}
+          className={index === winnerIndex ? "winner" : "roshambo"}
+        >
+          <Image
+            className="roshamboElement"
+            src={`/assets/${element}.png`}
+            alt={element}
+            height="60"
+            width="60"
+            key={element}
+            onClick={() => handleChoice(element)}
+          />
+        </ElementBox>
+      ))}
+  
 </Elements>
-     
+     <PlayerPointsWrapper>
       <Header>Your Points: {playerWins}</Header>
+      </PlayerPointsWrapper>
       {popup && <Popup>
         <Header>{popupMessage}</Header>
         <Header>Computer : {computerWins}</Header>
