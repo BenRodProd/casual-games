@@ -5,6 +5,7 @@ import Memory from "@/components/Memory";
 import useLocalStorage from "use-local-storage";
 import TicTacToe from "@/components/Tictactoe";
 import styled from "styled-components";
+import StoneRockScissors from "@/components/StoneRockSissors";
 
 const Navigation = styled.div`
 display: flex;
@@ -67,7 +68,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-   
+
     setTimeout(() => {
       setIsLoading(false);
     }, 10);
@@ -86,11 +87,13 @@ export default function Home() {
  <Navigation>
   <button onClick={()=> setGame("TicTacToe")} className={game === "TicTacToe" ? "navbutton active" : "navbutton"} type="button">TicTacToe</button>
   <button onClick={()=> setGame("Memory")} className={game === "Memory" ? "navbutton active" : "navbutton"} type="button">Memory</button>
+  <button onClick={()=> setGame("StoneRockScissors")} className={game === "StoneRockScissors" ? "navbutton active" : "navbutton"} type="button">StoneRockScissors</button>
  </Navigation>
 
  <Main>
   {game==="TicTacToe" && <TicTacToe setGamePoints={setGamePoints} />}
   {game==="Memory" && <Memory setGamePoints={setGamePoints} />}
+  {game==="StoneRockScissors" && <StoneRockScissors setGamePoints={setGamePoints} />}
     
   </Main>
   
