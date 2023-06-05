@@ -13,6 +13,8 @@ justify-content: space-evenly;
 background-color: rgba(39, 236, 245, 0.5);
 position: fixed;
 width: 100%;
+
+
 top:0;
 margin-bottom: 3rem;
 padding: 5px;
@@ -39,6 +41,8 @@ bottom:0;
 
 `
 
+
+
 const Main = styled.div`
 display: flex;
 position: relative;
@@ -49,6 +53,7 @@ width: 100%;
 height: 100%;
 margin-top: 5rem;
 overflow-y: scroll;
+
 `
 
 const Points = styled.p`
@@ -87,7 +92,7 @@ export default function Home() {
  <Navigation>
   <button onClick={()=> setGame("TicTacToe")} className={game === "TicTacToe" ? "navbutton active" : "navbutton"} type="button">TicTacToe</button>
   <button onClick={()=> setGame("Memory")} className={game === "Memory" ? "navbutton active" : "navbutton"} type="button">Memory</button>
-  <button onClick={()=> setGame("StoneRockScissors")} className={game === "StoneRockScissors" ? "navbutton active" : "navbutton"} type="button">StoneRockScissors</button>
+  <button onClick={()=> setGame("StoneRockScissors")} className={game === "StoneRockScissors" ? "navbutton active" : "navbutton"} type="button">Roshambo</button>
  </Navigation>
 
  <Main>

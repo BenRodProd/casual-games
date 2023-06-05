@@ -29,7 +29,7 @@ display: flex;
 flex-direction: column;
 position: absolute;
 height: 60%;
-width: 60%;
+width: 80%;
 background-color: rgba(0, 0, 0, 0.9);
 border: 3px solid white;
 align-items: center;
@@ -41,7 +41,11 @@ const ElementBox = styled.div`
 border: 3px solid white;
 
 `
+const ComputerWrapper = styled.div`
 
+
+height: 100px;
+`
 const Elements = styled.div`
 display: flex;
 position:relative;
@@ -67,11 +71,12 @@ export default function StoneRockScissors({setGamePoints}) {
   const [popup, setPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
 const [gameMessage, setGameMessage] = useState("");
-
-
+const [winnerIndex, setWinnerIndex] = useState(-1);
+const [buttonDisabled, setButtonDisabled] = useState(false);
 
 useEffect(() => {
     if (round >= 3) {
+      setButtonDisabled(true);
         if (playerWins > computerWins) {
           setTimeout(() => {
             setPopupMessage("YOU HAVE WON!!!!")
@@ -114,14 +119,17 @@ useEffect(() => {
     ) {
       setPlayerWins(playerWins + 1);
       setRound(round + 1);
+      setWinnerIndex(gameElements.indexOf(playersChoice));
       return "Player wins!";
     } else if (playersChoice === computersChoice) {
       setGameMessage("Tie!")
+      setWinnerIndex(-1);
       return "It's a tie!";
       
     } else {
       setComputerWins(computerWins + 1);
       setRound(round + 1);
+      setWinnerIndex(gameElements.indexOf(computersChoice));
       return "Computer wins!";
     }
   };
@@ -134,15 +142,18 @@ useEffect(() => {
     setPopup(false)
     setComputerChoice("")
     setGameMessage("")
+    setButtonDisabled(false)
   }
 
   const handleChoice = (choice) => {
+    if (!buttonDisabled) {
     const NewChoice =gameElements[Math.floor(Math.random() * gameElements.length)]
     setComputerChoice(NewChoice);
     setPlayerChoice(choice);
     determineWinner(choice, NewChoice);
    
     console.log(choice, computerChoice)
+    }
     // You can update the game state or perform other actions based on the result
   };
 
@@ -176,25 +187,35 @@ useEffect(() => {
         </button>
       </Menu>
       <Header>Points Computer: {computerWins}</Header>
-      
+        <ComputerWrapper>
       {computerChoice !== "" &&
       <ElementBox>
       <Image src = {`/assets/${computerChoice}.png`} alt={computerChoice} height="100" width="100" key={computerChoice} />
       </ElementBox>}
-      {gameMessage !== "" && <Header >{gameMessage}</Header>}
-        <Elements>
-        {gameElements.map((element) => (
-            <ElementBox key = {element}>
-          <Image src = {`/assets/${element}.png`} alt={element} height="100" width="100" key={element} onClick={() => handleChoice(element)}>
-         
-          </Image>
-          </ElementBox>
-        ))}
-        </Elements>
+      </ComputerWrapper>
+      <Header >{gameMessage}</Header>
+      
+      <Elements>
+  {gameElements.map((element, index) => (
+    <ElementBox key={element} className={index === winnerIndex ? "winner" : ""}>
+      <Image
+      
+        src={`/assets/${element}.png`}
+        alt={element}
+        height="80"
+        width="80"
+        key={element}
+        onClick={() => handleChoice(element)}
+      />
+    </ElementBox>
+  ))}
+</Elements>
      
       <Header>Your Points: {playerWins}</Header>
       {popup && <Popup>
-        <div>{popupMessage}</div>
+        <Header>{popupMessage}</Header>
+        <Header>Computer : {computerWins}</Header>
+        <Header>You : {playerWins}</Header>
         <button onClick = {()=> resetGame()} type ="button">TRY AGAIN</button>
         </Popup>}
       </Main>
