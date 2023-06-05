@@ -63,3 +63,19 @@ button:active {
 .active {
   background: linear-gradient(to bottom, #630b46 5%, #ff0055 100%);
 }
+.winner {
+  background:green;
+}
+.roshambo {
+  background:black;
+  
+}
+a {
+  text-decoration: none;
+  z-index:20;
+  color:white;
+}
+.roshamboElement {
+  background: transparent;
+  object-fit: fill;
+}
