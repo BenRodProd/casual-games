@@ -99,12 +99,12 @@ export default function Home() {
   {game==="TicTacToe" && <TicTacToe setGamePoints={setGamePoints} />}
   {game==="Memory" && <Memory setGamePoints={setGamePoints} />}
   {game==="StoneRockScissors" && <StoneRockScissors setGamePoints={setGamePoints} />}
-    
   </Main>
-  
-  </ImageWrapper>
  
-    <a target="_blank" href="https://profile-room.vercel.app/"> &copy; BenRodProd</a>
+  </ImageWrapper>
+  <a target="_blank" href="https://profile-room.vercel.app/"> &copy; BenRodProd</a>
+ 
+    
   
  </>
   )
