@@ -37,12 +37,13 @@ justify-content: center;
 padding: 2rem;
 `
 const ElementBox = styled.div`
+padding:0;
 
 border: 3px solid white;
 
 `
 const ComputerWrapper = styled.div`
-
+background-color:transparent;
 
 height: 100px;
 `
@@ -59,7 +60,10 @@ margin-top:3rem;
   color: white;
   text-align: center;
 `
+const GameMessageWrapper = styled.div`
 
+height: 8rem;
+`
 export default function StoneRockScissors({setGamePoints}) {
   const [difficulty, setDifficulty] = useState("easy");
   const gameElements = ["Rock", "Paper", "Scissors"];
@@ -73,12 +77,17 @@ export default function StoneRockScissors({setGamePoints}) {
 const [gameMessage, setGameMessage] = useState("");
 const [winnerIndex, setWinnerIndex] = useState(-1);
 const [buttonDisabled, setButtonDisabled] = useState(false);
+const [computerHasWon, setComputerHasWon] = useState(false);
 
 useEffect(() => {
     if (round >= 3) {
       setButtonDisabled(true);
+      
         if (playerWins > computerWins) {
+         
           setTimeout(() => {
+            setComputerHasWon(false)
+            setWinnerIndex(-1)
             setPopupMessage("YOU HAVE WON!!!!")
             setPopup(true);
             setGamePoints((prev) => prev + 10);
@@ -88,7 +97,8 @@ useEffect(() => {
         
     }   else if (computerWins > playerWins) {
       setTimeout(() => {
-        
+        setWinnerIndex(-1)
+        setComputerHasWon(false)
         setPopupMessage("YOU LOST!!!!")
         setPopup(true);
         setGamePoints((prev) => prev - 10);
@@ -101,15 +111,36 @@ useEffect(() => {
 
 
   function determineWinner (playersChoice, computersChoice) {
-    console.log(playersChoice, computersChoice)
+
     if ((playersChoice === "Rock" && computersChoice === "Scissors") || (playersChoice === "Scissors" && computersChoice === "Rock")) {
       setGameMessage("Rock crashes Scissors");
+      setButtonDisabled(true);
+      setTimeout(() => {
+        setButtonDisabled(false);
+        setGameMessage("")
+        setComputerChoice("")
+        setWinnerIndex(-1)
+      },1500)
     }
     if ((playersChoice === "Rock" && computersChoice === "Paper") || (playersChoice === "Paper" && computersChoice === "Rock")) {
       setGameMessage("Paper holds Rock");
+      setButtonDisabled(true);
+      setTimeout(() => {
+        setButtonDisabled(false);
+        setGameMessage("")
+        setComputerChoice("")
+        setWinnerIndex(-1)
+      },1500)
     }
     if ((playersChoice === "Scissors" && computersChoice === "Paper") || (playersChoice === "Paper" && computersChoice === "Scissors")) {
       setGameMessage("Scissors cut Paper");
+      setButtonDisabled(true);
+      setTimeout(() => {
+        setButtonDisabled(false);
+        setGameMessage("")
+        setComputerChoice("")
+        setWinnerIndex(-1)
+      },1500)
     }
     
     if (
@@ -120,17 +151,28 @@ useEffect(() => {
       setPlayerWins(playerWins + 1);
       setRound(round + 1);
       setWinnerIndex(gameElements.indexOf(playersChoice));
-      return "Player wins!";
+     
     } else if (playersChoice === computersChoice) {
       setGameMessage("Tie!")
       setWinnerIndex(-1);
-      return "It's a tie!";
+      setButtonDisabled(true);
+      setTimeout(() => {
+        setButtonDisabled(false);
+        setGameMessage("")
+        setComputerChoice("")
+        setWinnerIndex(-1)
+      },1500)
+    
       
     } else {
       setComputerWins(computerWins + 1);
       setRound(round + 1);
-      setWinnerIndex(gameElements.indexOf(computersChoice));
-      return "Computer wins!";
+      setWinnerIndex(-1);
+      setComputerHasWon(true);
+      setTimeout(() => {
+       setComputerHasWon(false)
+      },1500)
+     
     }
   };
 
@@ -152,9 +194,9 @@ useEffect(() => {
     setPlayerChoice(choice);
     determineWinner(choice, NewChoice);
    
-    console.log(choice, computerChoice)
+ 
     }
-    // You can update the game state or perform other actions based on the result
+
   };
 
   return (
@@ -189,17 +231,18 @@ useEffect(() => {
       <Header>Points Computer: {computerWins}</Header>
         <ComputerWrapper>
       {computerChoice !== "" &&
-      <ElementBox>
-      <Image src = {`/assets/${computerChoice}.png`} alt={computerChoice} height="100" width="100" key={computerChoice} />
+      <ElementBox className={computerHasWon ? "winner" : "roshambo"}>
+      <Image src = {`/assets/${computerChoice}.png`} alt={computerChoice} height="100" width="100" key={computerChoice} className="roshamboElement"/>
       </ElementBox>}
       </ComputerWrapper>
+      <GameMessageWrapper>
       <Header >{gameMessage}</Header>
-      
+      </GameMessageWrapper>
       <Elements>
   {gameElements.map((element, index) => (
-    <ElementBox key={element} className={index === winnerIndex ? "winner" : ""}>
+    <ElementBox key={element} className={index === winnerIndex ? "winner" : "roshambo"} >
       <Image
-      
+      className="roshamboElement"
         src={`/assets/${element}.png`}
         alt={element}
         height="80"
