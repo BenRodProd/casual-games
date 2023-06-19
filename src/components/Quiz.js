@@ -26,7 +26,7 @@ const Card = styled.div`
     width: 90%;
     height: 70%;
     border: 3px solid white;
-    margin-bottom:1rem;
+    margin-bottom:2rem;
 `
 
 const CardBackground = styled(Image)`
@@ -45,7 +45,7 @@ justify-content: center;
 align-items: center;
 font-size: 20px;
 padding:10px;
-
+margin-bottom:2rem;
 text-align: center;
 width: 90%;
 height: 70%;
