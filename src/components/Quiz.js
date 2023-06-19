@@ -26,6 +26,7 @@ const Card = styled.div`
     width: 90%;
     height: 70%;
     border: 3px solid white;
+    margin-bottom:1rem;
 `
 
 const CardBackground = styled(Image)`
@@ -57,16 +58,20 @@ const ChooseAnswer = styled.button`
     border: 3px solid white;
     color: white;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    margin: 10px;
+    margin: 5px;
     z-index:2;
     `
 
 const Question = styled.p`
-font-size: 20px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-size: 18px;
 background-color: rgba(39, 106, 245, 0.9);
+border: 3px solid white;
+border-radius: 5%;
+padding:5px;
 `
 const GameWrapper = styled.div`
 display:flex;
