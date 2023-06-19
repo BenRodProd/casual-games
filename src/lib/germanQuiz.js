@@ -268,6 +268,211 @@ export const germanQuiz = [
         "answers": ["Dobby", "Kreacher", "Winky", "Hokey"],
         "correctAnswerIndex": 1,
         "topic": "Harry_Potter"
-        }
+        },
+        {
+            "question": "Wie lautet der berühmte Satz von Neil Armstrong, als er als erster Mensch den Mond betrat?",
+            "answers": ["Das ist ein kleiner Schritt für einen Menschen, aber ein riesiger Sprung für die Menschheit.", "Houston, wir haben ein Problem.", "Eagle has landed.", "One small step for man, one giant leap for mankind."],
+            "correctAnswerIndex": 3,
+            "topic": "Planets"
+            },
+          
+            {
+            "question": "Wie viele Kontinente gibt es auf der Erde?",
+            "answers": ["4", "6", "7", "9"],
+            "correctAnswerIndex": 2,
+            "topic": "Geography"
+            },
+            {
+            "question": "Welcher Ozean liegt zwischen den Kontinenten Europa und Nordamerika?",
+            "answers": ["Atlantischer Ozean", "Pazifischer Ozean", "Indischer Ozean", "Arktischer Ozean"],
+            "correctAnswerIndex": 0,
+            "topic": "Geography"
+            },
+            {
+            "question": "Welche Farbe hat eine reife Banane?",
+            "answers": ["Grün", "Gelb", "Rot", "Blau"],
+            "correctAnswerIndex": 1,
+            "topic": "Food"
+            },
+            {
+            "question": "Wer hat das Gemälde 'Die Mona Lisa' gemalt?",
+            "answers": ["Pablo Picasso", "Vincent van Gogh", "Leonardo da Vinci", "Michelangelo"],
+            "correctAnswerIndex": 2,
+            "topic": "Art"
+            },
+            {
+            "question": "Wie heißt die Hauptstadt von Australien?",
+            "answers": ["Melbourne", "Sydney", "Canberra", "Perth"],
+            "correctAnswerIndex": 2,
+            "topic": "Geography"
+            },
+            {
+            "question": "Was ist die chemische Formel für Wasser?",
+            "answers": ["H2O", "CO2", "NaCl", "O2"],
+            "correctAnswerIndex": 0,
+            "topic": "Chemistry"
+            },
+            {
+            "question": "Welcher berühmte Physiker formulierte die Relativitätstheorie?",
+            "answers": ["Isaac Newton", "Albert Einstein", "Stephen Hawking", "Nikola Tesla"],
+            "correctAnswerIndex": 1,
+            "topic": "Biology"
+            },
+            {
+            "question": "Wer schrieb das Buch 'Die Odyssee'?",
+            "answers": ["Homer", "Sophokles", "Platon", "Euripides"],
+            "correctAnswerIndex": 0,
+            "topic": "Books"
+            },
+            {
+            "question": "Wie viele Spieler hat eine Fußballmannschaft auf dem Spielfeld?",
+            "answers": ["8", "9", "10", "11"],
+            "correctAnswerIndex": 3,
+            "topic": "Sport"
+            },
+            {
+                "question": "Wer ist der Autor des Romans 'Der Herr der Ringe'?",
+                "answers": ["J.R.R. Tolkien", "George R.R. Martin", "J.K. Rowling", "Stephen King"],
+                "correctAnswerIndex": 0,
+                "topic": "Books"
+                },
+                {
+                "question": "Welches Gemälde stammt von Leonardo da Vinci?",
+                "answers": ["Mona Lisa", "Die Schrei", "Die Sternennacht", "Die Erschaffung Adams"],
+                "correctAnswerIndex": 0,
+                "topic": "Art"
+                },
+                {
+                "question": "Welches Organ ist für die Blutpumpfunktion im menschlichen Körper verantwortlich?",
+                "answers": ["Lunge", "Leber", "Herz", "Gehirn"],
+                "correctAnswerIndex": 2,
+                "topic": "Biology"
+                },
+                {
+                "question": "Welches Land beherbergt die Pyramiden von Gizeh?",
+                "answers": ["Ägypten", "Mexiko", "Griechenland", "Italien"],
+                "correctAnswerIndex": 0,
+                "topic": "Geography"
+                },
+                {
+                "question": "Welcher Sportler hält den Rekord für die meisten gewonnenen Olympiamedaillen?",
+                "answers": ["Usain Bolt", "Serena Williams", "Michael Phelps", "Lionel Messi"],
+                "correctAnswerIndex": 2,
+                "topic": "Sport"
+                },
+                {
+                "question": "Welches Element hat das chemische Symbol 'H'?",
+                "answers": ["Wasserstoff", "Helium", "Kohlenstoff", "Sauerstoff"],
+                "correctAnswerIndex": 0,
+                "topic": "Chemistry"
+                },
+                {
+                "question": "Wer schrieb den Roman 'Stolz und Vorurteil'?",
+                "answers": [ "Emily Brontë", "Jane Austen","Charlotte Brontë", "Virginia Woolf"],
+                "correctAnswerIndex": 1,
+                "topic": "Books"
+                },
+                {
+                "question": "Welches Gemälde stammt von Pablo Picasso?",
+                "answers": ["Die Schrei", "Die Sternennacht","Guernica",  "Die Erschaffung Adams"],
+                "correctAnswerIndex": 2,
+                "topic": "Art"
+                },
+                {
+                "question": "Welches Tier ist bekannt für seine Fähigkeit zur Echolokation?",
+                "answers": ["Delphin", "Eichhörnchen", "Löwe", "Schlange"],
+                "correctAnswerIndex": 0,
+                "topic": "Biology"
+                },
+                {
+                "question": "Welches Land wird oft als das 'Land der aufgehenden Sonne' bezeichnet?",
+                "answers": ["China", "Japan", "Korea", "Indien"],
+                "correctAnswerIndex": 1,
+                "topic": "Geography"
+                },
+                {
+                "question": "Welcher Sport wird in Wimbledon gespielt?",
+                "answers": [ "Fußball", "Golf","Tennis", "Basketball"],
+                "correctAnswerIndex": 2,
+                "topic": "Sport"
+                },
+                {
+                "question": "Welches Element hat das chemische Symbol 'Ca'?",
+                "answers": ["Calcium", "Kalium", "Kupfer", "Kohlenstoff"],
+                "correctAnswerIndex": 0,
+                "topic": "Chemistry"
+                },
+                {
+                "question": "Wer schrieb das Buch 'Die Verwandlung'?",
+                "answers": ["Franz Kafka", "Hermann Hesse", "Thomas Mann", "Friedrich Nietzsche"],
+                "correctAnswerIndex": 0,
+                "topic": "Books"
+                },
+                {
+                "question": "Welches Gemälde stammt von Vincent van Gogh?",
+                "answers": ["Die Sternennacht", "Mona Lisa", "Das letzte Abendmahl", "Die Geburt der Venus"],
+                "correctAnswerIndex": 0,
+                "topic": "Art"
+                },
+                {
+                "question": "Welches Tier ist dafür bekannt, seine Farbe zur Tarnung zu ändern?",
+                "answers": ["Tintenfisch", "Bär", "Adler", "Elefant"],
+                "correctAnswerIndex": 0,
+                "topic": "Biology"
+                },
+                {
+                "question": "Welches Land beherbergt die Christusstatue in Rio de Janeiro?",
+                "answers": ["Brasilien", "Argentinien", "Chile", "Peru"],
+                "correctAnswerIndex": 0,
+                "topic": "Geography"
+                },
+                {
+                "question": "Welcher Sportler hält den Rekord für die meisten gewonnenen Grand-Slam-Titel im Tennis?",
+                "answers": ["Roger Federer", "Rafael Nadal", "Novak Djokovic", "Serena Williams"],
+                "correctAnswerIndex": 0,
+                "topic": "Sport"
+                },
+                {
+                "question": "Welches Element hat das chemische Symbol 'O'?",
+                "answers": ["Sauerstoff", "Natrium", "Stickstoff", "Kohlenstoff"],
+                "correctAnswerIndex": 0,
+                "topic": "Chemistry"
+                },
+                {
+                "question": "Wer schrieb das Buch 'Die Odyssee'?",
+                "answers": ["Homer", "Plato", "Aristoteles", "Sokrates"],
+                "correctAnswerIndex": 0,
+                "topic": "Books"
+                },
+                {
+                "question": "Welches Gemälde stammt von Michelangelo?",
+                "answers": ["Die Erschaffung Adams", "Die Schrei", "Die Sternennacht", "Die Mona Lisa"],
+                "correctAnswerIndex": 0,
+                "topic": "Art"
+                },
+                {
+                "question": "Welches Tier hat ein exoskelett?",
+                "answers": ["Käfer", "Hund", "Katze", "Kuh"],
+                "correctAnswerIndex": 0,
+                "topic": "Biology"
+                },
+                {
+                "question": "Welches Land wird oft als 'Land der tausend Seen' bezeichnet?",
+                "answers": ["Finnland", "Schweden", "Norwegen", "Dänemark"],
+                "correctAnswerIndex": 0,
+                "topic": "Geography"
+                },
+                {
+                "question": "Welcher Sportler hat die meisten Tore in der Geschichte des Fußballs erzielt?",
+                "answers": ["Pelé", "Lionel Messi", "Cristiano Ronaldo", "Diego Maradona"],
+                "correctAnswerIndex": 0,
+                "topic": "Sport"
+                },
+                {
+                "question": "Welches Element hat das chemische Symbol 'Au'?",
+                "answers": ["Gold", "Silber", "Aluminium", "Eisen"],
+                "correctAnswerIndex": 0,
+                "topic": "Chemistry"
+                }
   ]
   

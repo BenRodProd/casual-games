@@ -545,6 +545,150 @@ export const englishQuiz = [
             "answers": ["Dobby", "Kreacher", "Winky", "Hokey"],
             "correctAnswerIndex": 1,
             "topic": "Harry_Potter"
-            }
+            },
+            {
+                "question": "Who is the author of the novel 'The Lord of the Rings'?",
+                "answers": ["J.R.R. Tolkien", "George R.R. Martin", "J.K. Rowling", "Stephen King"],
+                "correctAnswerIndex": 0,
+                "topic": "Books"
+                },
+                {
+                "question": "Which painting was created by Leonardo da Vinci?",
+                "answers": ["Mona Lisa", "The Scream", "Starry Night", "The Creation of Adam"],
+                "correctAnswerIndex": 0,
+                "topic": "Art"
+                },
+                {
+                "question": "Which organ is responsible for the blood pumping function in the human body?",
+                "answers": ["Lung", "Liver", "Heart", "Brain"],
+                "correctAnswerIndex": 2,
+                "topic": "Biology"
+                },
+                {
+                "question": "Which country is home to the Pyramids of Giza?",
+                "answers": [ "Mexico","Egypt", "Greece", "Italy"],
+                "correctAnswerIndex": 1,
+                "topic": "Geography"
+                },
+                {
+                "question": "Which athlete holds the record for the most Olympic medals won?",
+                "answers": ["Michael Phelps", "Usain Bolt", "Serena Williams", "Lionel Messi"],
+                "correctAnswerIndex": 0,
+                "topic": "Sport"
+                },
+                {
+                "question": "Which element has the chemical symbol 'H'?",
+                "answers": [ "Helium", "Carbon", "Hydrogen","Oxygen"],
+                "correctAnswerIndex": 2,
+                "topic": "Chemistry"
+                },
+                {
+                "question": "Who wrote the novel 'Pride and Prejudice'?",
+                "answers": ["Jane Austen", "Emily Brontë", "Charlotte Brontë", "Virginia Woolf"],
+                "correctAnswerIndex": 0,
+                "topic": "Books"
+                },
+                {
+                "question": "Which painting was created by Pablo Picasso?",
+                "answers": ["Guernica", "The Scream", "Starry Night", "The Creation of Adam"],
+                "correctAnswerIndex": 0,
+                "topic": "Art"
+                },
+                {
+                "question": "Which animal is known for its echolocation ability?",
+                "answers": [ "Squirrel","Dolphin", "Lion", "Snake"],
+                "correctAnswerIndex": 1,
+                "topic": "Biology"
+                },
+                {
+                "question": "Which country is often referred to as the 'Land of the Rising Sun'?",
+                "answers": ["Japan", "China", "Korea", "India"],
+                "correctAnswerIndex": 0,
+                "topic": "Geography"
+                },
+                {
+                "question": "Which sport is played at Wimbledon?",
+                "answers": [ "Football", "Golf", "Tennis","Basketball"],
+                "correctAnswerIndex": 2,
+                "topic": "Sport"
+                },
+                {
+                "question": "Which element has the chemical symbol 'Ca'?",
+                "answers": ["Calcium", "Potassium", "Copper", "Carbon"],
+                "correctAnswerIndex": 0,
+                "topic": "Chemistry"
+                },
+                {
+                "question": "Who wrote the book 'The Metamorphosis'?",
+                "answers": ["Franz Kafka", "Hermann Hesse", "Thomas Mann", "Friedrich Nietzsche"],
+                "correctAnswerIndex": 0,
+                "topic": "Books"
+                },
+                {
+                "question": "Which painting was created by Vincent van Gogh?",
+                "answers": ["Starry Night", "Mona Lisa", "The Last Supper", "The Birth of Venus"],
+                "correctAnswerIndex": 0,
+                "topic": "Art"
+                },
+                {
+                "question": "Which animal is known to change its color for camouflage?",
+                "answers": [ "Bear", "Eagle","Octopus", "Elephant"],
+                "correctAnswerIndex": 2,
+                "topic": "Biology"
+                },
+                {
+                "question": "Which country is home to the Christ the Redeemer statue in Rio de Janeiro?",
+                "answers": [ "Argentina", "Brazil","Chile", "Peru"],
+                "correctAnswerIndex": 1,
+                "topic": "Geography"
+                },
+                {
+                "question": "Which athlete holds the record for the most Grand Slam titles won in tennis?",
+                "answers": ["Roger Federer", "Rafael Nadal", "Novak Djokovic", "Serena Williams"],
+                "correctAnswerIndex": 0,
+                "topic": "Sport"
+                },
+                {
+                "question": "Which element has the chemical symbol 'O'?",
+                "answers": ["Oxygen", "Sodium", "Nitrogen", "Carbon"],
+                "correctAnswerIndex": 0,
+                "topic": "Chemistry"
+                },
+                {
+                "question": "Who wrote the epic poem 'The Odyssey'?",
+                "answers": [ "Plato", "Aristotle", "Homer","Socrates"],
+                "correctAnswerIndex": 2,
+                "topic": "Books"
+                },
+                {
+                "question": "Which painting was created by Michelangelo?",
+                "answers": ["The Creation of Adam", "The Scream", "Starry Night", "Mona Lisa"],
+                "correctAnswerIndex": 0,
+                "topic": "Art"
+                },
+                {
+                "question": "Which animal has an exoskeleton?",
+                "answers": [ "Dog", "Beetle","Cat", "Cow"],
+                "correctAnswerIndex": 1,
+                "topic": "Biology"
+                },
+                {
+                "question": "Which country is often referred to as the 'Land of a Thousand Lakes'?",
+                "answers": [ "Sweden", "Norway", "Finland","Denmark"],
+                "correctAnswerIndex": 2,
+                "topic": "Geography"
+                },
+                {
+                "question": "Which athlete has scored the most goals in the history of football (soccer)?",
+                "answers": ["Pelé", "Lionel Messi", "Cristiano Ronaldo", "Diego Maradona"],
+                "correctAnswerIndex": 0,
+                "topic": "Sport"
+                },
+                {
+                "question": "Which element has the chemical symbol 'Au'?",
+                "answers": ["Iron", "Gold", "Silver", "Aluminum" ],
+                "correctAnswerIndex": 1,
+                "topic": "Chemistry"
+                }
   ]
   
