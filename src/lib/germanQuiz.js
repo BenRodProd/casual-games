@@ -422,8 +422,8 @@ export const germanQuiz = [
                 },
                 {
                 "question": "Welches Land beherbergt die Christusstatue in Rio de Janeiro?",
-                "answers": ["Brasilien", "Argentinien", "Chile", "Peru"],
-                "correctAnswerIndex": 0,
+                "answers": [ "Argentinien","Brasilien", "Chile", "Peru"],
+                "correctAnswerIndex": 1,
                 "topic": "Geography"
                 },
                 {
@@ -434,14 +434,14 @@ export const germanQuiz = [
                 },
                 {
                 "question": "Welches Element hat das chemische Symbol 'O'?",
-                "answers": ["Sauerstoff", "Natrium", "Stickstoff", "Kohlenstoff"],
-                "correctAnswerIndex": 0,
+                "answers": [ "Natrium", "Stickstoff", "Kohlenstoff","Sauerstoff"],
+                "correctAnswerIndex": 3,
                 "topic": "Chemistry"
                 },
                 {
                 "question": "Wer schrieb das Buch 'Die Odyssee'?",
-                "answers": ["Homer", "Plato", "Aristoteles", "Sokrates"],
-                "correctAnswerIndex": 0,
+                "answers": [ "Plato", "Aristoteles","Homer", "Sokrates"],
+                "correctAnswerIndex": 2,
                 "topic": "Books"
                 },
                 {
@@ -452,8 +452,8 @@ export const germanQuiz = [
                 },
                 {
                 "question": "Welches Tier hat ein exoskelett?",
-                "answers": ["Käfer", "Hund", "Katze", "Kuh"],
-                "correctAnswerIndex": 0,
+                "answers": [ "Hund", "Katze", "Käfer","Kuh"],
+                "correctAnswerIndex": 2,
                 "topic": "Biology"
                 },
                 {
@@ -470,8 +470,8 @@ export const germanQuiz = [
                 },
                 {
                 "question": "Welches Element hat das chemische Symbol 'Au'?",
-                "answers": ["Gold", "Silber", "Aluminium", "Eisen"],
-                "correctAnswerIndex": 0,
+                "answers": [ "Silber","Gold", "Aluminium", "Eisen"],
+                "correctAnswerIndex": 1,
                 "topic": "Chemistry"
                 }
   ]
