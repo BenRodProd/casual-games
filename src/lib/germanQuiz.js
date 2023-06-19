@@ -228,12 +228,6 @@ export const germanQuiz = [
         "topic": "Harry_Potter"
         },
         {
-        "question": "Welcher Charakter sagt den Satz: 'Immer?' - 'Immer.'?",
-        "answers": ["Dumbledore", "Harry Potter", "Snape", "Hermine"],
-        "correctAnswerIndex": 2,
-        "topic": "Harry_Potter"
-        },
-        {
         "question": "Wie heißt das Haustierdrachen von Hagrid in 'Harry Potter und der Stein der Weisen'?",
         "answers": ["Norbert", "Fang", "Buckbeak", "Aragog"],
         "correctAnswerIndex": 0,
