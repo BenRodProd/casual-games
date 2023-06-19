@@ -170,7 +170,7 @@ export const germanQuiz = [
         {
         "question": "Welcher Fluss ist der längste der Welt?",
         "answers": ["Nil", "Amazonas", "Mississippi", "Jangtse"],
-        "correcBüchertAnswerIndex": 0,
+        "correctAnswerIndex": 0,
         "topic": "Geography"
         },
         {
