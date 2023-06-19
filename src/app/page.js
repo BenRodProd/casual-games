@@ -43,6 +43,7 @@ margin-top:0rem;
 bottom:0;
 
 
+
 `
 const StyledButton = styled.button`
 background-color: transparent;
@@ -66,7 +67,7 @@ justify-content: center;
 width: 100%;
 height: 100%;
 margin-top: 5rem;
-overflow-y: scroll;
+overflow:hidden;
 
 `
 
@@ -84,7 +85,20 @@ padding: 5px;
 z-index:15;
 max-width: 520px;
 `
-
+const GameWrapper = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 100%;
+height: 100%;
+margin:auto;
+overflow:hidden;
+-webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+max-width: 520px;
+`
 export default function Home() {
   const [gamePoints, setGamePoints] = useLocalStorage("gamePoints", 0);
   const [game, setGame] = useState("TicTacToe")
@@ -104,6 +118,7 @@ export default function Home() {
   }
   return (
  <>
+ <GameWrapper>
  <ImageWrapper>
   <BackgroundImage src = "/assets/back.jpg" fill={true} alt ="back" />
   <Points>Points: {gamePoints}</Points>
@@ -124,7 +139,7 @@ export default function Home() {
   </ImageWrapper>
   <a target="_blank" href="https://profile-room.vercel.app/"> &copy; BenRodProd</a>
  
-    
+  </GameWrapper>
   
  </>
   )

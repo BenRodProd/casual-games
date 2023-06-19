@@ -130,13 +130,13 @@ export const englishQuiz = [
         "question": "Which famous scientist developed the theory of general relativity?",
         "answers": ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Stephen Hawking"],
         "correctAnswerIndex": 1,
-        "topic": "Science"
+        "topic": "Chemistry"
       },
       {
         "question": "Which country won the FIFA World Cup 2018?",
         "answers": ["France", "Germany", "Brazil", "Argentina"],
         "correctAnswerIndex": 0,
-        "topic": "Sports"
+        "topic": "Sport"
       },
       {
         "question": "What is the chemical symbol for the element iron?",
@@ -190,7 +190,7 @@ export const englishQuiz = [
         "question": "Which city hosted the Summer Olympics in 2020?",
         "answers": ["Tokyo", "Rio de Janeiro", "London", "Beijing"],
         "correctAnswerIndex": 0,
-        "topic": "Sports"
+        "topic": "Sport"
       },
       {
         "question": "What is the largest animal on Earth?",
@@ -208,13 +208,13 @@ export const englishQuiz = [
         "question": "Which mountain is the tallest in the world?",
         "answers": ["Mount Everest", "K2", "Kangchenjunga", "Makalu"],
         "correctAnswerIndex": 0,
-        "topic": "Mountains"
+        "topic": "Geography"
       },
       {
         "question": "Who was the first person to step on the Moon?",
         "answers": ["Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin", "Alan Shepard"],
         "correctAnswerIndex": 0,
-        "topic": "Space"
+        "topic": "Planets"
       },
       {
         "question": "What is the chemical symbol for the element helium?",
@@ -518,7 +518,7 @@ export const englishQuiz = [
         },
         {
             "question": "What are the names of the four houses at Hogwarts School of Witchcraft and Wizardry?",
-            "answers": ["Gryffindor, Hufflepuff, Ravenclaw, Slytherin", "Ravenclaw, Slytherin, Hufflepuff, Gryffindor", "Hufflepuff, Gryffindor, Slytherin, Ravenclaw", "Slytherin, Ravenclaw, Gryffindor, Hufflepuff"],
+            "answers": ["Gryffindor, Hufflepuff, Ravenclaw, Slytherin", "Ravenpaw, Slytherin, Hufflepuff, Gryffindor", "Hufflesnuff, Gryffindor, Slytherin, Ravenclaw", "Bytherin, Ravenclaw, Gryffindor, Hufflepuff"],
             "correctAnswerIndex": 0,
             "topic": "Harry_Potter"
             },

@@ -44,8 +44,8 @@ justify-content: center;
 align-items: center;
 font-size: 30px;
 text-align: center;
-width: 100%;
-height: 100%;
+width: 90%;
+height: 70%;
 max-width: 520px;
 background-color: rgba(0, 0, 0, 0.9);
 border: 3px solid white;
@@ -110,6 +110,9 @@ export default function Quiz({setGamePoints}) {
 function handleRightAnswer() {
     setGamePoints((prev) => prev +3)
     setCurrentCardIndex ((prev) => prev +1)
+    if (cards.length <= currentCardIndex +1) {
+        setCurrentCardIndex(0)
+        }
     setCurrentCard(cards[currentCardIndex])
     if (language==="english") {
     setPopupMessage("Correct!")
@@ -122,6 +125,9 @@ function handleRightAnswer() {
 function handleWrongAnswer() {
  setGamePoints((prev) => prev-3)
  setCurrentCardIndex ((prev) => prev +1)
+ if (cards.length <= currentCardIndex +1) {
+ setCurrentCardIndex(0)
+ }
  setCurrentCard(cards[currentCardIndex])
  if (language==="english") {
  setPopupMessage(`Wrong! The correct answer is "${currentCard.answers[currentCard.correctAnswerIndex]}"`)
@@ -135,7 +141,8 @@ function handleNextQuestion() {
     setPopup(false)
     
 }
-
+if (!currentCard || !currentCard.topic) {
+    return null}
     return (
         <>
         <GameWrapper>

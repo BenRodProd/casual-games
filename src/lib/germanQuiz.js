@@ -247,7 +247,7 @@ export const germanQuiz = [
         },
         {
         "question": "Wie lauten die Namen der vier Häuser in der Hogwarts-Schule für Hexerei und Zauberei?",
-        "answers": ["Gryffindor, Hufflepuff, Ravenclaw, Slytherin", "Ravenclaw, Slytherin, Hufflepuff, Gryffindor", "Hufflepuff, Gryffindor, Slytherin, Ravenclaw", "Slytherin, Ravenclaw, Gryffindor, Hufflepuff"],
+        "answers": ["Gryffindor, Hufflepuff, Ravenclaw, Slytherin", "Ravenclaw, Slytherin, Huffleschnuff, Gryffindor", "Hufflepuff, Gryffindor, Slytherin, Ravenpaw", "Mytherin, Ravenclaw, Gryffindor, Hufflepuff"],
         "correctAnswerIndex": 0,
         "topic": "Harry_Potter"
         },
