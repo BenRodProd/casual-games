@@ -43,7 +43,9 @@ display:flex;
 position:absolute;
 justify-content: center;
 align-items: center;
-font-size: 30px;
+font-size: 20px;
+padding:10px;
+
 text-align: center;
 width: 90%;
 height: 70%;
@@ -162,7 +164,7 @@ if (!currentCard || !currentCard.topic) {
                 return <ChooseAnswer key={index} onClick={()=> handleAnswer(index)}>{answer}</ChooseAnswer>
             })}
         </Card>
-        {popup && <Popup onClick={() => handleNextQuestion()}>{popupMessage}</Popup>}
+        {popup && <Popup onClick={() => handleNextQuestion()}><p>{popupMessage}</p></Popup>}
         </GameWrapper>
         </>
     )
