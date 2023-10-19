@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const Main = styled.div`
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 100dvw;
+  height: 100dvh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@ const Menu = styled.div`
   width: 100%;
   position: absolute;
   
-  top: 0;
+  top: 2%;
   left: 0;
 `;
 
