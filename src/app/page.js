@@ -14,7 +14,7 @@ justify-content: space-evenly;
 
 background-color: rgba(39, 236, 245, 0.5);
 position: absolute;
-width: 100%;
+width: 100dvw;
 left:50%;
 transform: translateX(-50%);
 max-width:520px;
@@ -90,8 +90,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-width: 100%;
-height: 100%;
+width: 100dvw;
+height: 100dvh;
 margin:auto;
 overflow:hidden;
 -webkit-user-select: none; /* Safari */
