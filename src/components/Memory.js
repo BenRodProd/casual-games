@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import styled from "styled-components";
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import styled from 'styled-components';
 
 const Main = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ const Menu = styled.div`
   gap: 15px;
   width: 100%;
   position: absolute;
-  
+
   top: 2%;
   left: 0;
 `;
@@ -28,40 +28,39 @@ const Button = styled.button`
 `;
 
 const Header = styled.h2`
-position: absolute;
+  position: absolute;
   color: white;
   text-align: center;
   top: 3rem;
 `;
-const Popup = styled.div `
-display: flex;
-flex-direction: column;
-position: absolute;
-height: 60%;
-width: 60%;
-background-color: rgba(0, 0, 0, 0.9);
-border: 3px solid white;
-align-items: center;
-justify-content: center;
-padding: 2rem;
-`
-
+const Popup = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 60%;
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 3px solid white;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+`;
 
 const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  
+
   overflow-y: auto;
-  margin-bottom:9rem;
+  margin-bottom: 9rem;
   margin-top: 8rem;
 `;
 
 const Card = styled.div`
   width: 100px;
   height: 100px;
-  background-color: ${({ turned }) => (turned ? "white" : "blue")};
-  cursor: ${({ turned, matched }) => (turned || matched ? "default" : "pointer")};
+  background-color: ${({ turned }) => (turned ? 'white' : 'blue')};
+  cursor: ${({ turned, matched }) => (turned || matched ? 'default' : 'pointer')};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,44 +71,40 @@ const Card = styled.div`
   }
 `;
 
-export default function Memory({setGamePoints}) {
-  const [difficulty, setDifficulty] = useState("easy");
+export default function Memory({ setGamePoints }) {
+  const [difficulty, setDifficulty] = useState('easy');
   const [cards, setCards] = useState([]);
   const [turnedCards, setTurnedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [wrongAttempts, setWrongAttempts] = useState(0);
   const [clickable, setClickable] = useState(true);
-  const [gameOver, setGameOver] = useState(false)
-
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     generateCards(difficulty);
   }, [difficulty]);
 
-  
-    useEffect(() => {
-      // ...existing code...
-      if (matchedCards.length > 0) {
- 
-      
+  useEffect(() => {
+    // ...existing code...
+    if (matchedCards.length > 0) {
       // Check if the game is over
       if (matchedCards.length === cards.length) {
-        setGameOver(true)
+        setGameOver(true);
         setGamePoints((prevGamePoints) => prevGamePoints + 10);
       }
     }
-    }, [matchedCards, turnedCards]);
+  }, [matchedCards, turnedCards]);
 
   const generateCards = (difficulty) => {
     let cardCount = 0;
     switch (difficulty) {
-      case "easy":
+      case 'easy':
         cardCount = 9;
         break;
-      case "medium":
+      case 'medium':
         cardCount = 12;
         break;
-      case "hard":
+      case 'hard':
         cardCount = 25;
         break;
       default:
@@ -123,28 +118,27 @@ export default function Memory({setGamePoints}) {
     const shuffledCards = shuffleArray(allCards);
 
     const cardImages = [
-      "/assets/memory/fl1.webp",
-      "/assets/memory/fl2.webp",
-      "/assets/memory/fl3.webp",
-      "/assets/memory/fl4.webp",
-      "/assets/memory/fl5.webp",
-      "/assets/memory/fl6.webp",
-      "/assets/memory/fl7.webp",
-      "/assets/memory/fl8.webp",
-      "/assets/memory/fl9.webp",
-      "/assets/memory/fl10.webp",
-      "/assets/memory/fl11.webp",
-      "/assets/memory/fl12.webp",
-      "/assets/memory/fl13.webp",
-
-        ];
+      '/assets/memory/fl1.webp',
+      '/assets/memory/fl2.webp',
+      '/assets/memory/fl3.webp',
+      '/assets/memory/fl4.webp',
+      '/assets/memory/fl5.webp',
+      '/assets/memory/fl6.webp',
+      '/assets/memory/fl7.webp',
+      '/assets/memory/fl8.webp',
+      '/assets/memory/fl9.webp',
+      '/assets/memory/fl10.webp',
+      '/assets/memory/fl11.webp',
+      '/assets/memory/fl12.webp',
+      '/assets/memory/fl13.webp'
+    ];
 
     setCards(
       shuffledCards.map((value, index) => ({
         id: index,
         value,
         turned: false,
-        image: cardImages[value - 1],
+        image: cardImages[value - 1]
       }))
     );
     setTurnedCards([]);
@@ -156,8 +150,6 @@ export default function Memory({setGamePoints}) {
     if (!clickable || card.turned || matchedCards.some((c) => c.id === card.id)) {
       return;
     }
-
-    
 
     const turnedCount = turnedCards.length;
     if (turnedCount === 0) {
@@ -184,7 +176,7 @@ export default function Memory({setGamePoints}) {
   };
   const resetGame = () => {
     generateCards(difficulty);
-    setGameOver(false)
+    setGameOver(false);
   };
   const checkTurnedCards = (turnedCards) => {
     const [card1, card2] = turnedCards;
@@ -219,13 +211,25 @@ export default function Memory({setGamePoints}) {
   return (
     <Main>
       <Menu>
-        <Button className={difficulty === "easy" ? "active" : ""} active={difficulty === "easy"} type="button" onClick={() => setDifficulty("easy")}>
+        <Button
+          className={difficulty === 'easy' ? 'active' : ''}
+          active={difficulty === 'easy'}
+          type="button"
+          onClick={() => setDifficulty('easy')}>
           Easy
         </Button>
-        <Button className={difficulty === "medium" ? "active" : ""} active={difficulty === "medium"} type="button" onClick={() => setDifficulty("medium")}>
+        <Button
+          className={difficulty === 'medium' ? 'active' : ''}
+          active={difficulty === 'medium'}
+          type="button"
+          onClick={() => setDifficulty('medium')}>
           Medium
         </Button>
-        <Button className={difficulty === "hard" ? "active" : ""} active={difficulty === "hard"} type="button" onClick={() => setDifficulty("hard")}>
+        <Button
+          className={difficulty === 'hard' ? 'active' : ''}
+          active={difficulty === 'hard'}
+          type="button"
+          onClick={() => setDifficulty('hard')}>
           Hard
         </Button>
       </Menu>
@@ -236,10 +240,15 @@ export default function Memory({setGamePoints}) {
             key={card.id}
             turned={card.turned}
             matched={matchedCards.some((c) => c.id === card.id)}
-            onClick={() => handleCardClick(card)}
-          >
+            onClick={() => handleCardClick(card)}>
             {card.turned || matchedCards.some((c) => c.id === card.id) ? (
-              <Image priority={true} src={card.image} width="100" height="100" alt={`Card ${card.id}`} />
+              <Image
+                priority={true}
+                src={card.image}
+                width="100"
+                height="100"
+                alt={`Card ${card.id}`}
+              />
             ) : (
               <span>?</span>
             )}
@@ -248,9 +257,11 @@ export default function Memory({setGamePoints}) {
       </CardContainer>
       {gameOver && (
         <>
-        <Popup>
-          <Header>You did it!</Header>
-          <button type="button" onClick={()=> resetGame()} >Play Again</button>
+          <Popup>
+            <Header>You did it!</Header>
+            <button type="button" onClick={() => resetGame()}>
+              Play Again
+            </button>
           </Popup>
         </>
       )}
